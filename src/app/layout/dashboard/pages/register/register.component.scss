@@ -1,0 +1,12 @@
+mat-stepper {
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  ::ng-deep .mat-step-icon {
+    height: 45px;
+    width: 45px;
+    font-size: 18px;
+  }
+}

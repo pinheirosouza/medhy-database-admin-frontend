@@ -1,0 +1,14 @@
+<mat-grid-list
+  [cols]="breakpoint"
+  [rowHeight]="rowHeight"
+  (window:resize)="onResize($event)"
+>
+  <mat-grid-tile *ngFor="let s of selectorCards">
+    <app-home-selector-card
+      [icon]="s.icon"
+      [title]="s.title"
+      [description]="s.description"
+      [routerLink]="s.routerLink"
+    ></app-home-selector-card>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,35 @@
+<span class="header"
+  ><mat-icon>coronavirus</mat-icon> CID 10 - D51 anemia por deficiência de
+  B12</span
+>
+<span class="header"
+  ><mat-icon>medical_services</mat-icon> Insira os principais sinais e sintomas
+  para a doença cadastrada</span
+>
+<form [formGroup]="form">
+  <div class="form-row">
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <input matInput placeholder="Sinais" formControlName="signs" />
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-stroked-button color="primary">Ver Lista</button>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <input matInput placeholder="Sintomas" formControlName="symptoms" />
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-stroked-button color="primary">Ver Lista</button>
+  </div>
+  <div class="actions">
+    <button mat-button color="primary" type="submit">
+      Prosseguir
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+</form>

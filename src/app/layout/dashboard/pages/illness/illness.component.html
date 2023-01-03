@@ -1,0 +1,103 @@
+<main *ngIf="illness.name">
+  <div class="header">
+    <h1>{{ illness.code }} - {{ illness.name || "Nome não cadastrado" }}</h1>
+    <button
+      mat-flat-button
+      color="primary"
+      [routerLink]="'/register/' + illness._id"
+    >
+      Editar
+    </button>
+  </div>
+
+  <div class="signs-and-symptoms-section">
+    <h1 class="section-header">
+      <mat-icon>medical_services</mat-icon> Sinais e Sintomas
+    </h1>
+    <div class="section">
+      <h1>Sinais</h1>
+      <mat-chip-list *ngIf="illness.signals; else signalsEmpty">
+        <mat-chip color="accent" *ngFor="let signal of illness.signals">
+          {{ signal.name }}
+          <mat-icon
+            matTooltip="Info about the action"
+            matTooltipPosition="above"
+            >info</mat-icon
+          >
+        </mat-chip>
+      </mat-chip-list>
+      <ng-template #signalsEmpty>
+        <p class="empty">Nenhum sinal cadastrado</p>
+      </ng-template>
+    </div>
+
+    <div class="section">
+      <h1>Sintomas</h1>
+      <mat-chip-list *ngIf="illness.symptoms; else symptomsEmpty">
+        <mat-chip color="accent" *ngFor="let symptoms of illness.symptoms">
+          {{ symptoms.name }}
+          <mat-icon
+            matTooltip="Info about the action"
+            matTooltipPosition="above"
+            >info</mat-icon
+          >
+        </mat-chip>
+      </mat-chip-list>
+      <ng-template #symptomsEmpty>
+        <p class="empty">Nenhum sintoma cadastrado</p>
+      </ng-template>
+    </div>
+  </div>
+  <br />
+  <div class="signs-and-symptoms-section">
+    <h1 class="section-header"><mat-icon>vaccines</mat-icon> Tratamento</h1>
+
+    <div class="section">
+      <h1>Medicação e Posologia</h1>
+      <ng-template *ngIf="illness.medications; else medicationEmpty">
+        <p *ngFor="let medication of illness.medications">
+          {{ medication.name }} - {{ medication.medication_dosage }}
+        </p>
+      </ng-template>
+      <ng-template #medicationEmpty>
+        <p class="empty">Nenhuma medicação cadastrada</p>
+      </ng-template>
+    </div>
+
+    <div class="section">
+      <h1>Exames</h1>
+      <ng-template *ngIf="illness.exams; else examsEmpty">
+        <p *ngFor="let exam of illness.exams">
+          {{ exam.type }} - {{ exam.name }}
+        </p>
+      </ng-template>
+      <ng-template #examsEmpty>
+        <p class="empty">Nenhum exame cadastrada</p>
+      </ng-template>
+    </div>
+
+    <div class="section" *ngIf="illness.orthers">
+      <h1>Outros</h1>
+      <p>{{ illness.orthers }}</p>
+    </div>
+  </div>
+
+  <span
+    >Fonte:
+
+    <a *ngIf="illness.font; else fontEmpty" [href]="illness.font">{{
+      illness.font
+    }}</a>
+    <ng-template #fontEmpty>
+      <p class="empty">Nenhuma fonte cadastrada</p>
+    </ng-template>
+  </span>
+</main>
+
+<!-- skeleton for the illness page -->
+<main *ngIf="!illness.name">
+  <br />
+  <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+  <br /><br />
+  <ngx-skeleton-loader count="5" appearance="line"></ngx-skeleton-loader>
+</main>

@@ -1,0 +1,21 @@
+<div class="illness-search-list" *ngFor="let item of illnessSearchList">
+  <mat-chip-list>
+    <mat-chip class="word">{{ item.word }}</mat-chip>
+  </mat-chip-list>
+  <div
+    class="illness-search-list-option"
+    *ngFor="let j of item.illnesses"
+    (click)="openDiseaseModal(j._id)"
+  >
+    <span>{{ j.name }}</span>
+    <mat-chip-list>
+      <mat-chip> Pendente </mat-chip>
+    </mat-chip-list>
+    <span class="spacer"></span>
+    <div class="action-icon">
+      <button mat-icon-button>
+        <mat-icon color="primary">chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

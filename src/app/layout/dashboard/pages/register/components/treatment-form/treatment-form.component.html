@@ -1,0 +1,67 @@
+<span class="header"
+  ><mat-icon>coronavirus</mat-icon> CID 10 - D51 anemia por deficiência de
+  B12</span
+>
+<span class="header"
+  ><mat-icon>vaccines</mat-icon> Insira o tratamento indicado para a
+  doença</span
+>
+<form [formGroup]="form">
+  <div class="form-row">
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <input matInput placeholder="Medicação" formControlName="medication" />
+      <button mat-icon-button matSuffix>
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <input matInput placeholder="Posologia" formControlName="posology" />
+      <button mat-icon-button matSuffix>
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="actions">
+    <button mat-button color="primary" type="submit">
+      <mat-icon>add</mat-icon>
+      Medicação
+    </button>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <mat-select formControlName="examType" placeholder="Tipo de Exame">
+        <mat-option>-- Selecionar --</mat-option>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <mat-select formControlName="exam" placeholder="Exame">
+        <mat-option>-- Selecionar --</mat-option>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="actions">
+    <button mat-button color="primary" type="submit">
+      <mat-icon>add</mat-icon>
+      Exame
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" floatLabel="auto">
+    <input matInput placeholder="Outros" formControlName="others" />
+    <button mat-icon-button matSuffix>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button color="primary" type="submit">
+      Prosseguir
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+</form>

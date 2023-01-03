@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BACKEND_URL: 'http://localhost:8000',
+  BACKEND_TEMPORARY_AUTH_TOKEN:
+    'eyJhbGciOiJIUzI1NiJ9.eyJkb2N0b3JJZCI6IjYzMzc3MGJiYWM3ZTIzOGI5YzdiNjliMyJ9.1bhGQC89mDmxHD7bCAbGEo3R_8SP8iMxGt3SuvH1z-c',
 };
 
 /*

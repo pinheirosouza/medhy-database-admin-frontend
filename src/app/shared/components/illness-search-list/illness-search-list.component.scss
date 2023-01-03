@@ -1,0 +1,30 @@
+@import "/src/styles.scss";
+@import "~@angular/material/theming";
+
+.illness-search-list {
+  margin-bottom: 20px;
+  mat-chip {
+    background-color: mat-color($database-admin-frontend-accent, 500);
+    color: mat-color($database-admin-frontend-accent, default-contrast);
+  }
+
+  .word {
+    margin: 15px 0;
+    cursor: pointer;
+  }
+
+  .illness-search-list-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 8px;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .illness-search-list-option:hover {
+    background-color: #f5f5f5;
+  }
+}

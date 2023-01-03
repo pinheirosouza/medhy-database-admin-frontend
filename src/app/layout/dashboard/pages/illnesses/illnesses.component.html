@@ -1,0 +1,42 @@
+<app-site-map-toolbar></app-site-map-toolbar>
+
+<main>
+  <span class="header"
+    ><mat-icon>coronavirus</mat-icon> Busque a doença pelo CID ou nome</span
+  >
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <mat-select formControlName="cid" placeholder="CID">
+        <mat-option>-- Selecionar --</mat-option>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <input
+        matInput
+        placeholder="Ex.: amigdalite bacterina"
+        formControlName="name"
+      />
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+
+  <app-illness-search-list
+    *ngIf="illnesses.length; else listSkeleton"
+    [illnessSearchList]="illnesses"
+  ></app-illness-search-list>
+
+  <ng-template #listSkeleton>
+    <ngx-skeleton-loader count="1" appearance="circle"></ngx-skeleton-loader>
+    <ngx-skeleton-loader
+      count="5"
+      appearance="line"
+      [theme]="{
+        height: '50px',
+        border: '1px solid white'
+      }"
+    ></ngx-skeleton-loader>
+  </ng-template>
+</main>

@@ -1,0 +1,45 @@
+// import main styles
+@import "/src/styles.scss";
+@import "~@angular/material/theming";
+
+.home-selector {
+  background-color: mat-color($database-admin-frontend-primary, A400);
+  color: mat-color($database-admin-frontend-primary, default-contrast);
+  cursor: pointer;
+
+  mat-card-content {
+    display: grid;
+    grid-template-columns: 1.4fr 11.5fr 1fr;
+
+    .home-selector-info {
+      .title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      .description {
+        font-weight: 400;
+        font-size: 12px;
+      }
+    }
+
+    .action-icon {
+      height: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: mat-color($database-admin-frontend-primary, 600);
+  }
+
+  &:active {
+    background-color: mat-color($database-admin-frontend-primary, 400);
+  }
+}

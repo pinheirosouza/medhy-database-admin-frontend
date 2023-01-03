@@ -1,0 +1,52 @@
+@import "/src/styles.scss";
+@import "~@angular/material/theming";
+
+main {
+  padding: 24px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  margin: 0;
+}
+
+mat-chip-list {
+  mat-icon {
+    margin-left: 6px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.signs-and-symptoms-section {
+  .section-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+
+    mat-icon {
+      color: mat-color($database-admin-frontend-accent, 500);
+      margin-right: 8px;
+    }
+  }
+
+  .section {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+}
+
+.empty {
+  color: red;
+}

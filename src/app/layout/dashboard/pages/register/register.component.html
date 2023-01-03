@@ -1,0 +1,17 @@
+<app-site-map-toolbar></app-site-map-toolbar>
+<mat-stepper linear #stepper labelPosition="bottom">
+  <mat-step [stepControl]="forms.illness">
+    <ng-template matStepLabel>DOENÇA</ng-template>
+    <app-illness-form [form]="forms.illness"></app-illness-form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>SINAIS E SINTOMAS</ng-template>
+    <app-sign-and-symptoms-form
+      [form]="forms.signAndSymptoms"
+    ></app-sign-and-symptoms-form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>TRATAMENTO</ng-template>
+    <app-treatment-form [form]="forms.treatment"></app-treatment-form>
+  </mat-step>
+</mat-stepper>
