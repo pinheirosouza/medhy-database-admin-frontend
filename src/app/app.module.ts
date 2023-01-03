@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider'
 
 import { HomeComponent } from './layout/dashboard/pages/home/home.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
@@ -33,6 +34,8 @@ import { TreatmentFormComponent } from './layout/dashboard/pages/register/compon
 import { MatStepperModule } from '@angular/material/stepper';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
+import { AlphabeticalScrollBarModule } from 'alphabetical-scroll-bar';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatStepperModule,
     HttpClientModule,
     NgxSkeletonLoaderModule,
+    AlphabeticalScrollBarModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

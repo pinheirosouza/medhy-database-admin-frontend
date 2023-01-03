@@ -25,3 +25,6 @@ form {
   align-items: center;
   justify-content: center;
 }
+::ng-deep{
+  right: -34px !important;
+}

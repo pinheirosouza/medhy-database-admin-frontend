@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
-  <button class="back-button" mat-icon-button (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
+    <button  *ngIf="isNotHome()" class="back-button" mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   <span class="spacer"></span>
   <img class="logo" src="assets/logo-white.svg" />
   <span class="spacer"></span>

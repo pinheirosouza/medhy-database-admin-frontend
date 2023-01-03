@@ -23,8 +23,8 @@
     </mat-form-field>
   </form>
 
+  <!-- *ngIf="illnesses.length; else listSkeleton" -->
   <app-illness-search-list
-    *ngIf="illnesses.length; else listSkeleton"
     [illnessSearchList]="illnesses"
   ></app-illness-search-list>
 

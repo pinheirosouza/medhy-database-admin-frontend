@@ -1,21 +1,44 @@
-<div class="illness-search-list" *ngFor="let item of illnessSearchList">
-  <mat-chip-list>
-    <mat-chip class="word">{{ item.word }}</mat-chip>
-  </mat-chip-list>
-  <div
-    class="illness-search-list-option"
-    *ngFor="let j of item.illnesses"
-    (click)="openDiseaseModal(j._id)"
-  >
-    <span>{{ j.name }}</span>
-    <mat-chip-list>
-      <mat-chip> Pendente </mat-chip>
-    </mat-chip-list>
-    <span class="spacer"></span>
-    <div class="action-icon">
-      <button mat-icon-button>
-        <mat-icon color="primary">chevron_right</mat-icon>
-      </button>
+
+
+    <alphabetical-scroll-bar
+    [alphabet]="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"
+    [validLetters]="letterGroups"
+    [disableInvalidLetters]="false"
+    [prioritizeHidingInvalidLetters]="true"
+    [letterMagnification]="true"
+    [magnifyDividers]="true"
+    [magnificationMultiplier]="2"
+    [magnificationCurve]="[1, .7, .6, .4, .2, 0]"
+    [exactX]="true"
+    [navigateOnHover]="false"
+    [letterSpacing]="'1%'"
+    [offsetSizeCheckInterval]="100"
+    (letterChange)="goToLetterGroup($event)"
+    (isActive)="!$event && enableScroll()"
+    style="position:fixed; top: 0; z-index: 1000;"
+  ></alphabetical-scroll-bar>
+
+  
+  <div class="no-scrollbar-container">
+    <div [id]="getGroupId(group.letterGroup)" *ngFor="let group of groups">
+      <mat-chip-list>
+        <mat-chip class="word">{{ group.letterGroup }}</mat-chip>
+      </mat-chip-list>
+      <div class="illness-search-list-option" *ngFor="let illness of group.illnesses" (click)="openDiseaseModal(illness.id)">
+
+        <span>{{illness.name}}</span>
+        <mat-chip-list>
+          <mat-chip> Pendente </mat-chip>
+        </mat-chip-list>
+        <span class="spacer"></span>
+        <div class="action-icon">
+          <button mat-icon-button>
+            <mat-icon color="primary">chevron_right</mat-icon>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
     </div>
   </div>
-</div>
+
+  
