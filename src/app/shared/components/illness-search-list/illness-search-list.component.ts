@@ -27,6 +27,7 @@ export class IllnessSearchListComponent implements OnInit {
 
   //called upon each emitted letter change
   goToLetterGroup(letter: string) {
+    console.log('scrolling to ',letter);
     this.isScrollDisabled = true;
     let elementId = `alphabet-scroll-${letter}`;
     let element = document.getElementById(elementId);
@@ -40,34 +41,18 @@ export class IllnessSearchListComponent implements OnInit {
   }
 
   //creates groups by first letter of name
-  groupByName(illnesses) {
+  sort(illnesses) {
     this.letterGroups = [];
-    let sortedillnesses = illnesses.sort((a, b) => a.name.localeCompare(b.name));
-    let currentLetter = undefined;
-    let currentillnesses = [];
-
-    sortedillnesses.forEach((name) => {
-      let firstLetter = name.name.charAt(0);
-      if (firstLetter != currentLetter) {
-        currentLetter = firstLetter;
-        this.letterGroups.push(currentLetter);
-
-        let newGroup = {
-          letterGroup: currentLetter,
-          illnesses: [],
-        };
-
-        currentillnesses = newGroup.illnesses;
-        this.groups.push(newGroup);
-      }
-
-      currentillnesses.push(name);
-    });
+    let sortedillnesses = illnesses.sort((a, b) => a.word.localeCompare(b.word));
+    sortedillnesses.forEach((illnesses) => {
+      console.log(illnesses.illnesses)
+      illnesses.illnesses.sort((a, b) => a.name.localeCompare(b.name));
+  });
   }
 
   ngOnInit(): void {
 
-    this.groupByName(this.illnessSearchList);
+    this.sort(this.illnessSearchList);
     console.log(this.groups)
   }
 

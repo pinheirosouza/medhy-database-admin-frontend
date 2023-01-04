@@ -12,4 +12,9 @@ export class SignAndSymptomsFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  handleFormSubmit() {
+    console.log(this.form.value);
+  }
+
 }

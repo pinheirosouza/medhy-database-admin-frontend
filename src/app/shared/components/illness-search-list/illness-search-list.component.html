@@ -4,27 +4,26 @@
     [alphabet]="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"
     [validLetters]="letterGroups"
     [disableInvalidLetters]="false"
-    [prioritizeHidingInvalidLetters]="true"
     [letterMagnification]="true"
     [magnifyDividers]="true"
     [magnificationMultiplier]="2"
     [magnificationCurve]="[1, .7, .6, .4, .2, 0]"
     [exactX]="true"
     [navigateOnHover]="false"
-    [letterSpacing]="'1%'"
-    [offsetSizeCheckInterval]="100"
+    [letterSpacing]="'0.6%'"
     (letterChange)="goToLetterGroup($event)"
     (isActive)="!$event && enableScroll()"
-    style="position:fixed; top: 0; z-index: 1000;"
+    style="position:fixed; top: 130px; z-index: 1000;"
   ></alphabetical-scroll-bar>
 
   
   <div class="no-scrollbar-container">
-    <div [id]="getGroupId(group.letterGroup)" *ngFor="let group of groups">
+    <div [id]="getGroupId(group.word)" *ngFor="let group of illnessSearchList">
+      <span class="spacer"></span>
       <mat-chip-list>
-        <mat-chip class="word">{{ group.letterGroup }}</mat-chip>
+        <mat-chip class="word">{{ group.word }}</mat-chip>
       </mat-chip-list>
-      <div class="illness-search-list-option" *ngFor="let illness of group.illnesses" (click)="openDiseaseModal(illness.id)">
+      <div class="illness-search-list-option" *ngFor="let illness of group.illnesses" (click)="openDiseaseModal(illness._id)">
 
         <span>{{illness.name}}</span>
         <mat-chip-list>

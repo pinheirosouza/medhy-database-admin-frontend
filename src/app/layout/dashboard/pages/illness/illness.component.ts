@@ -22,6 +22,8 @@ export class IllnessComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.illnessService.getIllnessById(id).subscribe((response: any) => {
       this.illness = response.data;
+    console.log(this.illness);
+
     });
   }
 }

@@ -16,11 +16,11 @@
     </h1>
     <div class="section">
       <h1>Sinais</h1>
-      <mat-chip-list *ngIf="illness.signals; else signalsEmpty">
-        <mat-chip color="accent" *ngFor="let signal of illness.signals">
+      <mat-chip-list *ngIf="illness.signal; else signalsEmpty">
+        <mat-chip color="accent" *ngFor="let signal of illness.signal">
           {{ signal.name }}
           <mat-icon
-            matTooltip="Info about the action"
+            matTooltip={{ signal.description}}
             matTooltipPosition="above"
             >info</mat-icon
           >
@@ -33,11 +33,11 @@
 
     <div class="section">
       <h1>Sintomas</h1>
-      <mat-chip-list *ngIf="illness.symptoms; else symptomsEmpty">
-        <mat-chip color="accent" *ngFor="let symptoms of illness.symptoms">
-          {{ symptoms.name }}
+      <mat-chip-list *ngIf="illness.symptom; else symptomsEmpty">
+        <mat-chip color="accent" *ngFor="let symptoms of illness.symptom">
+          {{ symptoms.symptom_name }}
           <mat-icon
-            matTooltip="Info about the action"
+            matTooltip={{ symptoms.specific_symptom}}
             matTooltipPosition="above"
             >info</mat-icon
           >
@@ -54,9 +54,9 @@
 
     <div class="section">
       <h1>Medicação e Posologia</h1>
-      <ng-template *ngIf="illness.medications; else medicationEmpty">
-        <p *ngFor="let medication of illness.medications">
-          {{ medication.name }} - {{ medication.medication_dosage }}
+      <ng-template *ngIf="illness.medication; else medicationEmpty">
+        <p *ngFor="let medication of illness.medication">
+          {{ medication.medication_name }} - {{ medication.medication_dosage }}
         </p>
       </ng-template>
       <ng-template #medicationEmpty>
@@ -76,9 +76,9 @@
       </ng-template>
     </div>
 
-    <div class="section" *ngIf="illness.orthers">
+    <div class="section" *ngIf="illness.others">
       <h1>Outros</h1>
-      <p>{{ illness.orthers }}</p>
+      <p>{{ illness.others }}</p>
     </div>
   </div>
 

@@ -12,4 +12,8 @@ export class TreatmentFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  handleFormSubmit() {
+    console.log(this.form.value);
+  }
 }
