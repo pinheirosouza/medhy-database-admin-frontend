@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./illness-search-list.component.scss'],
 })
 export class IllnessSearchListComponent implements OnInit {
-  @Input() illnessSearchList: any[]; //list of illness to be displayed
+  @Input() illnessSearchList: any[]; 
 
-   isScrollDisabled = false; //used to enable and disable scroll while using the scroll bar
-  letterGroups: Array<string> = []; //each letter that will show up in a divider. Used for validLetters
-  groups: Array<any> = []; //{ illnesses: Array<string>, letterGroup: string }
+   isScrollDisabled = false; 
+  letterGroups: Array<string> = []; 
+  groups: Array<any> = []; 
 
   constructor(
     private router: Router,
@@ -20,12 +20,10 @@ export class IllnessSearchListComponent implements OnInit {
   ) {
   }
   
-  //used in the html file to set a unique id for each group
   getGroupId(letter: string) {
     return `alphabet-scroll-${letter}`;
   }
 
-  //called upon each emitted letter change
   goToLetterGroup(letter: string) {
     console.log('scrolling to ',letter);
     this.isScrollDisabled = true;
@@ -35,25 +33,22 @@ export class IllnessSearchListComponent implements OnInit {
     // hapticsImpactLight();
   }
 
-  //Disables the scroll while user is using the scroll bar
   enableScroll() {
     this.isScrollDisabled = false;
   }
 
-  //creates groups by first letter of name
   sort(illnesses) {
-    this.letterGroups = [];
     let sortedillnesses = illnesses.sort((a, b) => a.word.localeCompare(b.word));
     sortedillnesses.forEach((illnesses) => {
       console.log(illnesses.illnesses)
       illnesses.illnesses.sort((a, b) => a.name.localeCompare(b.name));
   });
+  this.letterGroups = sortedillnesses.map((illnesses) => illnesses.word);
   }
 
   ngOnInit(): void {
 
     this.sort(this.illnessSearchList);
-    console.log(this.groups)
   }
 
   openDiseaseModal(id: any) {

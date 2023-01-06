@@ -8,12 +8,11 @@
     [magnifyDividers]="true"
     [magnificationMultiplier]="2"
     [magnificationCurve]="[1, .7, .6, .4, .2, 0]"
-    [exactX]="true"
+    [exactX]="false"
     [navigateOnHover]="false"
     [letterSpacing]="'0.6%'"
     (letterChange)="goToLetterGroup($event)"
-    (isActive)="!$event && enableScroll()"
-    style="position:fixed; top: 130px; z-index: 1000;"
+    style="position:fixed; top: 130px; z-index: 10000;"
   ></alphabetical-scroll-bar>
 
   
