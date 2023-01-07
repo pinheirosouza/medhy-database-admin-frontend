@@ -6,57 +6,67 @@
   ><mat-icon>vaccines</mat-icon> Insira o tratamento indicado para a
   doença</span
 >
-<form [formGroup]="form">
-  <div class="form-row">
-    <mat-form-field appearance="outline" floatLabel="auto">
-      <input matInput placeholder="Medicação" formControlName="medication" />
+
+  <div class="form-row" *ngFor="let medication of medicationsList;index as i" [id]="'medication-'+i">
+    <div class="outline" >
+      <input matInput placeholder="Medicação" [(ngModel)]="medicationsList[i].name"/>
       <button mat-icon-button matSuffix>
         <mat-icon>edit</mat-icon>
       </button>
-    </mat-form-field>
-    <mat-form-field appearance="outline" floatLabel="auto">
-      <input matInput placeholder="Posologia" formControlName="posology" />
-      <button mat-icon-button matSuffix>
-        <mat-icon>edit</mat-icon>
-      </button>
-    </mat-form-field>
+    </div>
+    <div class="outline" >
+      <mat-select placeholder="Dosagem"[(ngModel)]="medicationsList[i].dose">
+        <mat-option *ngFor="let option of dosageOptions" [value]="option"  >{{option}}</mat-option>
+      </mat-select>
+    </div>
+    <div class="outline" >
+      <mat-select placeholder="Horário"[(ngModel)]="medicationsList[i].frequency">
+        <mat-option *ngFor="let option of frequencyOptions" [value]="option"   >{{option}}</mat-option>
+      </mat-select>
+    </div>
+    <div class="outline" >
+      <mat-select placeholder="Duração"[(ngModel)]="medicationsList[i].duration">
+        <mat-option *ngFor="let option of durationOptions" [value]="option">{{option}}</mat-option>
+      </mat-select>
+    </div>
   </div>
 
   <div class="actions">
-    <button mat-button color="primary" type="submit">
+    <button mat-button color="primary" (click)="addMedication()">
       <mat-icon>add</mat-icon>
       Medicação
     </button>
   </div>
 
-  <div class="form-row">
-    <mat-form-field appearance="outline" floatLabel="auto">
-      <mat-select formControlName="examType" placeholder="Tipo de Exame">
-        <mat-option>-- Selecionar --</mat-option>
-        <mat-option value="option">Option</mat-option>
+  <div class="form-row" *ngFor="let exam of examsList; index as j" [id]="'exam-'+j">
+    <div class="outline" >
+      <mat-select  placeholder="Tipo de Exame" [(ngModel)]="examsList[j].type">
+        <mat-option *ngFor="let option of examTypes" [value]="option">{{option}}</mat-option>
       </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline" floatLabel="auto">
-      <mat-select formControlName="exam" placeholder="Exame">
-        <mat-option>-- Selecionar --</mat-option>
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-    </mat-form-field>
+    </div>
+    <div class="outline" >
+      <span *ngIf="!examsList[j].name[0]" (click)="openExamModal()">
+        Selecionar
+      </span>
+      <span *ngIf="examsList[j].name[0] !== ''">
+        {{examsList[j].name}}
+      </span>
+    </div>
   </div>
 
   <div class="actions">
-    <button mat-button color="primary" type="submit">
+    <button mat-button color="primary" (click)="addExam()">
       <mat-icon>add</mat-icon>
       Exame
     </button>
   </div>
 
-  <mat-form-field appearance="outline" floatLabel="auto">
-    <input matInput placeholder="Outros" formControlName="others" />
+  <div class="outline" >
+    <input matInput placeholder="Outros" />
     <button mat-icon-button matSuffix>
       <mat-icon>edit</mat-icon>
     </button>
-  </mat-form-field>
+  </div>
 
   <div class="actions">
     <button mat-button color="primary" matStepperNext (click)="handleFormSubmit()">
@@ -64,4 +74,3 @@
       <mat-icon>arrow_forward_ios</mat-icon>
     </button>
   </div>
-</form>

@@ -11,6 +11,8 @@ import { SignsModalComponent } from 'src/app/shared/components/signs-modal/signs
 export class SignAndSymptomsFormComponent implements OnInit {
   @Input()
   public form: any;
+  public selectedSign: Array<any> = [];
+  public selectedSymptoms: Array<any> = [];
   public symptomsList: Array<any> = [
     {
       name: 'Fever',
@@ -42,6 +44,7 @@ export class SignAndSymptomsFormComponent implements OnInit {
   }
 
   openSymptomsModal(symptom) {
+    this.selectedSymptoms.push(symptom);
     const dialogRef = this.dialog.open(SymptomsModalComponent, {
       width: '500px',
       data: {
@@ -55,6 +58,7 @@ export class SignAndSymptomsFormComponent implements OnInit {
   }
 
   openSignsModal(sign) {
+    this.selectedSign.push(sign);
     const dialogRef = this.dialog.open(SignsModalComponent, {
       width: '500px',
       data: {
@@ -65,6 +69,14 @@ export class SignAndSymptomsFormComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
     });
+  }
+
+  removeSign(sign) {
+    this.selectedSign = this.selectedSign.filter((item) => item.name !== sign.name);
+  }
+
+ removeSymptom(symptom) {
+    this.selectedSymptoms = this.selectedSymptoms.filter((item) => item.name !== symptom.name);
   }
 
 }

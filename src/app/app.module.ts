@@ -40,6 +40,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AlphabeticalScrollBarModule } from 'alphabetical-scroll-bar';
 import { SymptomsModalComponent } from './shared/components/symptoms-modal/symptoms-modal.component';
 import { SignsModalComponent } from './shared/components/signs-modal/signs-modal.component';
+import { ExamModalComponent } from './shared/components/exam-modal/exam-modal.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SignsModalComponent } from './shared/components/signs-modal/signs-modal
     TreatmentFormComponent,
     SymptomsModalComponent,
     SignsModalComponent,
+    ExamModalComponent,
   ],
   imports: [
     BrowserModule,

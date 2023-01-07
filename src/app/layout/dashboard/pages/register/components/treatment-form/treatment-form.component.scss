@@ -23,8 +23,10 @@ form {
 }
 
 .form-row {
-  display: flex;
-  flex-direction: row;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -45,5 +47,21 @@ mat-form-field {
 
   button {
     font-size: 18px;
+  }
+}
+
+.outline{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  display: grid;
+  height: 30px;
+  position: relative;
+  button{
+    position: absolute;
+    right: 0;
+    top: 0;
+
   }
 }
