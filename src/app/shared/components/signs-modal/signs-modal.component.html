@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Detalhes</h1>
+    <p>Complemente com detalhes como duração ou intensidade do sintoma cadastrado.</p>
+    <form [formGroup]="form">
+        <mat-form-field appearance="outline" floatLabel="auto">
+            <input matInput placeholder="Ex.: intensa por 5 dias" formControlName="details" />
+            <button mat-icon-button matSuffix>
+                <mat-icon>border_color</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" floatLabel="auto">
+            <input matInput placeholder="Taxa de incidência" formControlName="incidency" />
+            <button mat-icon-button matSuffix>
+                <mat-icon>percentage</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <input type="checkbox" formControlName="noIncidency" >Não possui taxa de incidência
+        <br>
+        <input type="checkbox" formControlName="pathognomonic" >Patognomônico
+    </form>
+    </div>

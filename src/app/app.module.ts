@@ -14,7 +14,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatDividerModule} from '@angular/material/divider'
+import {MatDividerModule} from '@angular/material/divider';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { HomeComponent } from './layout/dashboard/pages/home/home.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
@@ -36,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 import { AlphabeticalScrollBarModule } from 'alphabetical-scroll-bar';
+import { SymptomsModalComponent } from './shared/components/symptoms-modal/symptoms-modal.component';
+import { SignsModalComponent } from './shared/components/signs-modal/signs-modal.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,8 @@ import { AlphabeticalScrollBarModule } from 'alphabetical-scroll-bar';
     IllnessFormComponent,
     SignAndSymptomsFormComponent,
     TreatmentFormComponent,
+    SymptomsModalComponent,
+    SignsModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,9 @@ import { AlphabeticalScrollBarModule } from 'alphabetical-scroll-bar';
     HttpClientModule,
     NgxSkeletonLoaderModule,
     AlphabeticalScrollBarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

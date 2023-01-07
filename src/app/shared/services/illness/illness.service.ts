@@ -45,4 +45,14 @@ export class IllnessService {
     const url = `${BACKEND_URL}/auth/illness/${id}`;
     return this.http.get(url, { headers });
   }
+
+  public create(illness: any) {
+    const url = `${BACKEND_URL}/auth/illness`;
+    return this.http.post(url, illness, { headers });
+  }
+
+  public update(illness: any) {
+    const url = `${BACKEND_URL}/auth/illness`;
+    return this.http.put(url, illness, { headers });
+  }
 }

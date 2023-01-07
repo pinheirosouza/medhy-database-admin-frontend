@@ -9,7 +9,12 @@
 <form [formGroup]="form">
   <div class="form-row">
     <mat-form-field appearance="outline" floatLabel="auto">
-      <input matInput placeholder="Sinais" formControlName="signs" />
+      <input matInput placeholder="Sinais" formControlName="signs" [matAutocomplete]="autoSigns"/>
+      <mat-autocomplete #autoSigns="matAutocomplete" >
+        <mat-option *ngFor="let option of signsList" [value]="option.name" (click)="openSignsModal(option)">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
       <button mat-icon-button matSuffix>
         <mat-icon>search</mat-icon>
       </button>
@@ -19,7 +24,12 @@
 
   <div class="form-row">
     <mat-form-field appearance="outline" floatLabel="auto">
-      <input matInput placeholder="Sintomas" formControlName="symptoms" />
+      <input matInput placeholder="Sintomas" formControlName="symptoms" [matAutocomplete]="autoSymptoms" />
+      <mat-autocomplete #autoSymptoms="matAutocomplete" >
+      <mat-option *ngFor="let option of symptomsList" [value]="option.name" (click)="openSymptomsModal(option)">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
       <button mat-icon-button matSuffix>
         <mat-icon>search</mat-icon>
       </button>
