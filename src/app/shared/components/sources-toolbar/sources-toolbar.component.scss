@@ -1,0 +1,40 @@
+// import main styles
+@import "/src/styles.scss";
+@import "~@angular/material/theming";
+.site-map-toolbar {
+  margin-bottom: 24px;
+  padding: 0 35px !important;
+  background-color: mat-color(
+    $database-admin-frontend-primary,
+    default-contrast
+  );
+
+  box-shadow: 0px 6px 10px 0px #00000033;
+
+  .site-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    //direction
+    flex-direction: row;
+
+    span {
+      font-size: 16px;
+      text-decoration: underline;
+      color: mat-color($database-admin-frontend-accent, 500);
+    }
+
+    .current-page-label {
+      // gray color
+      color: $dark-disabled-text;
+      text-decoration: none;
+    }
+  }
+
+  button {
+    span {
+      color: mat-color($database-admin-frontend-primary, default-contrast);
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div>
+    <div class="header">
+        <h1>Insira a fonte utilizada para o resultado</h1>
+        <button  mat-flat-button color="primary" (click)="add()" [disabled]="!origin && !source">
+            <mat-icon>check</mat-icon> 
+            Adicionar
+        </button>
+    </div>
+    <div class="body">
+        <div class="form-row">
+            <div class="outline" >
+              <input matInput placeholder="Origem" [(ngModel)]="origin"/>
+              <button mat-icon-button matSuffix>
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+            </div>
+        
+        <div class="form-row">
+            <div class="outline" >
+              <input matInput placeholder="Link" [(ngModel)]="source"/>
+              <button mat-icon-button matSuffix>
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+        </div>
+
+      
+            <button (click)="addAndClear()" mat-button matSuffix class=outline>
+                <mat-icon>add</mat-icon>
+                Mais Fontes
+            </button>
+       
+        
+    </div>
+</div>

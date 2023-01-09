@@ -1,0 +1,44 @@
+
+@import "/src/styles.scss";
+@import "~@angular/material/theming";
+
+
+.header{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    button{
+        height: 30px;
+    }
+}
+input{
+    border: 0 !important;
+}
+.form-row {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .outline{
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      display: grid;
+      height: 30px;
+      position: relative;
+      button{
+        position: absolute;
+        right: 0;
+        top: 0;
+    
+      }
+    }
+  }

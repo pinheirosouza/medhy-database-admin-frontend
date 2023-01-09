@@ -41,6 +41,9 @@ import { AlphabeticalScrollBarModule } from 'alphabetical-scroll-bar';
 import { SymptomsModalComponent } from './shared/components/symptoms-modal/symptoms-modal.component';
 import { SignsModalComponent } from './shared/components/signs-modal/signs-modal.component';
 import { ExamModalComponent } from './shared/components/exam-modal/exam-modal.component';
+import { SourcesComponent } from './layout/dashboard/pages/sources/sources.component';
+import { SourcesToolbarComponent } from './shared/components/sources-toolbar/sources-toolbar.component';
+import { NewSourceModalComponent } from './shared/components/new-source-modal/new-source-modal.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { ExamModalComponent } from './shared/components/exam-modal/exam-modal.co
     SymptomsModalComponent,
     SignsModalComponent,
     ExamModalComponent,
+    SourcesComponent,
+    SourcesToolbarComponent,
+    NewSourceModalComponent,
   ],
   imports: [
     BrowserModule,

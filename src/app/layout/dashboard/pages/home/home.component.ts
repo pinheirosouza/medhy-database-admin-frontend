@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
       title: 'Fontes',
       description: 'Cadastre e visualize fontes recomendadas',
       icon: 'summarize',
-      routerLink: 'https://angular.io/',
+      routerLink: '/sources',
     },
   ];
   breakpoint: number;

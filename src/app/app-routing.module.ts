@@ -1,10 +1,11 @@
 import { RegisterComponent } from './layout/dashboard/pages/register/register.component';
 import { IllnessComponent } from './layout/dashboard/pages/illness/illness.component';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { IllnessesComponent } from './layout/dashboard/pages/illnesses/illnesses.component';
 import { HomeComponent } from './layout/dashboard/pages/home/home.component';
+import { SourcesComponent } from './layout/dashboard/pages/sources/sources.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
         data: { backRoute: '' },
+      },
+      {
+        path: 'sources',
+        component: SourcesComponent
       },
       {
         path: 'illnesses',
