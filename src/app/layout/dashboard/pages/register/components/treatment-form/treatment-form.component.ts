@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ExamModalComponent } from 'src/app/shared/components/exam-modal/exam-modal.component';
+import { NewSourceModalComponent } from 'src/app/shared/components/new-source-modal/new-source-modal.component';
 
 @Component({
   selector: 'app-treatment-form',
@@ -39,6 +40,17 @@ export class TreatmentFormComponent implements OnInit {
   }
 
   handleFormSubmit() {
+    this.dialog.open(NewSourceModalComponent,
+      {
+        width: '500px',
+      })
+
+      this.dialog.afterAllClosed.subscribe((result) => {
+        console.log(result);
+        //fazer o patch da fonte na doença, talvez usar outra dialgoRef aqui
+      }
+      );
+
   }
 
   addMedication() {

@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     this.forms = {};
     this.forms.illness = new FormGroup({
       cid: new FormControl(''),
+      code: new FormControl(''),
       name: new FormControl(''),
     });
     this.forms.signAndSymptoms = new FormGroup({

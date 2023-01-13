@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SourceService } from '../../services/source/source.service';
 
 @Component({
   selector: 'app-new-source-modal',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class NewSourceModalComponent implements OnInit {
   public origin;
   public source;
-  constructor() { }
+  constructor(
+    private sourceService: SourceService
+    
+  ) { }
 
   ngOnInit(): void {
   }
@@ -17,14 +21,29 @@ export class NewSourceModalComponent implements OnInit {
     console.log(this.origin);
     console.log(this.source);
     //call post method to add new source
+    this.createSource();
   }
 
   addAndClear(){
     console.log(this.origin);
     console.log(this.source);
     //call post method to add new source
+    this.createSource();    
     this.origin = '';
     this.source = '';
+  }
+
+  createSource(){
+    this.sourceService.create({
+      id: localStorage.getItem('illnessId'),
+      origin: this.origin,
+      source: this.source
+    }).subscribe((res:any) => {
+      console.log(res);
+      if(!res.success) {
+        alert(res.message);
+      }
+    });
   }
 
 }

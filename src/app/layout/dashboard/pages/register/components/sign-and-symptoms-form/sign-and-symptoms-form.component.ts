@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SymptomsModalComponent } from 'src/app/shared/components/symptoms-modal/symptoms-modal.component';
 import { SignsModalComponent } from 'src/app/shared/components/signs-modal/signs-modal.component';
+import { IllnessService } from 'src/app/shared/services/illness/illness.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-and-symptoms-form',
@@ -31,6 +33,9 @@ export class SignAndSymptomsFormComponent implements OnInit {
   ];
   constructor(
     public dialog: MatDialog,
+    private illnessService: IllnessService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +46,17 @@ export class SignAndSymptomsFormComponent implements OnInit {
 
   handleFormSubmit() {
     console.log(this.form.value);
+    this.illnessService.update({
+      _id: localStorage.getItem('illnessId'),
+      signs: this.selectedSign,
+      symptoms: this.selectedSymptoms
+    }).subscribe((res:any) => {
+      console.log(res);
+      if(!res.success) {
+        alert(res.message);
+      }
+    }
+    );
   }
 
   openSymptomsModal(symptom) {

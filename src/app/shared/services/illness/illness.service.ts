@@ -52,7 +52,7 @@ export class IllnessService {
   }
 
   public update(illness: any) {
-    const url = `${BACKEND_URL}/auth/illness`;
-    return this.http.put(url, illness, { headers });
+    const url = `${BACKEND_URL}/auth/illness/${illness._id}`;
+    return this.http.patch(url, illness, { headers });
   }
 }

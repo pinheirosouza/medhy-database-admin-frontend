@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
+import {  ActivatedRoute, Router } from '@angular/router';
 import { IllnessService } from 'src/app/shared/services/illness/illness.service';
 
 @Component({
@@ -12,8 +12,9 @@ export class IllnessFormComponent implements OnInit {
   public form: any;
 
   constructor(
-    private route: Router,
-    private illnessService: IllnessService
+    private router: Router,
+    private illnessService: IllnessService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -24,8 +25,9 @@ export class IllnessFormComponent implements OnInit {
     this.illnessService.create(this.form.value).subscribe((res:any) => {
       console.log(res);
       if(!res.success) {
-        this.illnessService.update(this.form.value).subscribe()
+        alert(res.message);
       }
+      localStorage.setItem('illnessId', res.data._id);
     });
     
  
