@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';	
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-@Injectable({
-  providedIn: 'root'
-})
 const headers = {
   'Content-Type': 'application/json',
   authorization: `${environment.BACKEND_TEMPORARY_AUTH_TOKEN}`,
 };
+@Injectable({
+  providedIn: 'root'
+})
 export class SourceService {
 
   constructor(
