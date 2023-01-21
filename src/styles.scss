@@ -67,6 +67,11 @@ mat-toolbar {
   }
 }
 
+.bg-color .mat-dialog-container{
+  background-color: #eeeeee;
+  padding: 24px 10px;
+}
+
 // .full-screen-modal {
 //   mat-dialog-container {
 //     padding: 0;

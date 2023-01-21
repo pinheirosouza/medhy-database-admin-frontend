@@ -26,11 +26,11 @@ export class SignsModalComponent implements OnInit {
   public initializeForm(): void {
     this.form = new FormGroup({
       name: new FormControl(this.data.sign, []),
-      details: new FormControl("", []),
-      incidency: new FormControl("", []),
-      noIncidency: new FormControl(false, []),
+      description: new FormControl("", []),
+      incidence_rate: new FormControl("", []),
       pathognomonic: new FormControl(false, []),
     });
   }
+
 }
 

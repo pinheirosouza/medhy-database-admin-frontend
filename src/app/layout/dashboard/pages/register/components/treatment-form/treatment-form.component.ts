@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ExamModalComponent } from 'src/app/shared/components/exam-modal/exam-modal.component';
 import { NewSourceModalComponent } from 'src/app/shared/components/new-source-modal/new-source-modal.component';
+import { IllnessService } from 'src/app/shared/services/illness/illness.service';
 
 @Component({
   selector: 'app-treatment-form',
@@ -13,8 +14,8 @@ export class TreatmentFormComponent implements OnInit {
   public form: any;
   public medicationsList: Array<any> = [ {
     name: '',
-    dose: '',
-    frequency: '',
+    dosage: '',
+    time: '',
     duration: '',
   } ];
   public dosageOptions: Array<any> = [ '10mg', '50mg', '100mg', '500mg']
@@ -24,7 +25,10 @@ export class TreatmentFormComponent implements OnInit {
 
   public examsList: Array<any> = [
     {
-      name: [],
+      exams:{
+        name: '',
+        id: '',
+      },
       type:''
     }];
 
@@ -33,6 +37,7 @@ export class TreatmentFormComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
+    private illnessService: IllnessService,
   ) {}
 
   ngOnInit(): void {
@@ -40,9 +45,23 @@ export class TreatmentFormComponent implements OnInit {
   }
 
   handleFormSubmit() {
+
+    this.illnessService.updateMedicationsExams({
+      illnessId: localStorage.getItem('illnessId'),
+      medication: this.medicationsList,
+      exams: this.examsList,
+      other: this.form.value.others,
+    }).subscribe((res:any) => {
+      console.log(res);
+      if(!res.success) {
+        alert(res.message);
+      }
+    }
+    );
+
     this.dialog.open(NewSourceModalComponent,
       {
-        width: '500px',
+        width: '600px', panelClass: 'bg-color'
       })
 
       this.dialog.afterAllClosed.subscribe((result) => {
@@ -78,8 +97,8 @@ export class TreatmentFormComponent implements OnInit {
       width: '500px',
       data: {
         exam
-
-  }});
+      }
+      });
   dialogRef.afterClosed().subscribe((result) => {
     console.log(result);
   }

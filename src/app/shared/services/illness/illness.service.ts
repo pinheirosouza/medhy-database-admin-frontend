@@ -8,6 +8,7 @@ const { BACKEND_URL, BACKEND_TEMPORARY_AUTH_TOKEN } = environment;
 const headers = {
   'Content-Type': 'application/json',
   authorization: `${BACKEND_TEMPORARY_AUTH_TOKEN}`,
+  'Access-Control-Allow-Origin': '*',
 };
 
 @Injectable({
@@ -48,11 +49,25 @@ export class IllnessService {
 
   public create(illness: any) {
     const url = `${BACKEND_URL}/auth/illness`;
-    return this.http.post(url, illness, { headers });
+    let illnessData = {
+      illnessName: illness.name,
+      a3code: illness.cid,
+      code: illness.code,
+    };
+
+    return this.http.post(url, illnessData, { headers });
   }
 
-  public update(illness: any) {
-    const url = `${BACKEND_URL}/auth/illness/${illness._id}`;
-    return this.http.patch(url, illness, { headers });
+  public updateSignsSymptoms(illness: any) {
+    const url = `${BACKEND_URL}/auth/illness/signals-symtom/`;
+
+    return this.http.put(url, illness, { headers });
+  }
+
+  public updateMedicationsExams(illness: any) {
+    const url = `${BACKEND_URL}/auth/illness/medications-exams/`;
+
+    return this.http.put(url, illness, { headers });
+  
   }
 }

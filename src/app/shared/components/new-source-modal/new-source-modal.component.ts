@@ -8,7 +8,7 @@ import { SourceService } from '../../services/source/source.service';
 })
 export class NewSourceModalComponent implements OnInit {
   public origin;
-  public source;
+  public link;
   constructor(
     private sourceService: SourceService
     
@@ -19,25 +19,25 @@ export class NewSourceModalComponent implements OnInit {
 
   add(){
     console.log(this.origin);
-    console.log(this.source);
+    console.log(this.link);
     //call post method to add new source
     this.createSource();
   }
 
   addAndClear(){
     console.log(this.origin);
-    console.log(this.source);
+    console.log(this.link);
     //call post method to add new source
     this.createSource();    
     this.origin = '';
-    this.source = '';
+    this.link = '';
   }
 
   createSource(){
     this.sourceService.create({
-      id: localStorage.getItem('illnessId'),
+      illnessId: localStorage.getItem('illnessId'),
       origin: this.origin,
-      source: this.source
+      link: this.link
     }).subscribe((res:any) => {
       console.log(res);
       if(!res.success) {

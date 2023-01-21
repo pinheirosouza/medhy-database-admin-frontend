@@ -38,6 +38,10 @@
     </button>
   </div>
 
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+
   <div class="form-row" *ngFor="let exam of examsList; index as j" [id]="'exam-'+j">
     <div class="outline" >
       <mat-select  placeholder="Tipo de Exame" [(ngModel)]="examsList[j].type">
@@ -60,6 +64,10 @@
       Exame
     </button>
   </div>
+
+  <br>
+  <mat-divider></mat-divider>
+  <br>
 
   <div class="outline" >
     <input matInput placeholder="Outros" />

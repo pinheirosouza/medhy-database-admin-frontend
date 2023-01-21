@@ -21,7 +21,6 @@ export class IllnessFormComponent implements OnInit {
   }
 
   handleFormSubmit() {
-    this.generateIllnessCode();
     this.illnessService.create(this.form.value).subscribe((res:any) => {
       console.log(res);
       if(!res.success) {
@@ -33,11 +32,5 @@ export class IllnessFormComponent implements OnInit {
  
   }
 
-  generateIllnessCode() {
-    if(this.form.value.code ) return;
-    let illnessCode = this.form.value.name.substring(0, 3).toUpperCase();
-    let random = Math.floor(Math.random() * 1000);
-    let code = illnessCode + random;
-    this.form.value.code = code;
-  }
+
 }

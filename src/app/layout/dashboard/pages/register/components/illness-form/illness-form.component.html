@@ -5,9 +5,16 @@
   <div class="form-row">
     <mat-form-field appearance="outline" floatLabel="auto">
       <mat-select formControlName="cid" placeholder="CID">
-        <mat-option>-- Selecionar --</mat-option>
-        <mat-option value="option">Option</mat-option>
+        <mat-option value="cid x">CID X</mat-option>
+        <mat-option value="cid y">CID Y</mat-option>
       </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <input
+        matInput
+        placeholder="código da doença"
+        formControlName="code"
+      />
     </mat-form-field>
     <mat-form-field appearance="outline" floatLabel="auto">
       <input

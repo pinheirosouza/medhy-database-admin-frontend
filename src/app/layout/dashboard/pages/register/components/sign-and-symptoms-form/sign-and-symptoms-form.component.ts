@@ -46,8 +46,8 @@ export class SignAndSymptomsFormComponent implements OnInit {
 
   handleFormSubmit() {
     console.log(this.form.value);
-    this.illnessService.update({
-      _id: localStorage.getItem('illnessId'),
+    this.illnessService.updateSignsSymptoms({
+      illnessId: localStorage.getItem('illnessId'),
       signs: this.selectedSign,
       symptoms: this.selectedSymptoms
     }).subscribe((res:any) => {

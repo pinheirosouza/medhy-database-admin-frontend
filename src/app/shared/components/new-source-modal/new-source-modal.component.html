@@ -1,7 +1,7 @@
-<div>
+<div class="container">
     <div class="header">
-        <h1>Insira a fonte utilizada para o resultado</h1>
-        <button  mat-flat-button color="primary" (click)="add()" [disabled]="!origin && !source">
+        <span>Insira a fonte utilizada para o resultado</span>
+        <button  mat-flat-button color="primary" (click)="add()" [disabled]="!origin && !link">
             <mat-icon>check</mat-icon> 
             Adicionar
         </button>
@@ -14,16 +14,16 @@
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
-            </div>
+         </div>
         
-        <div class="form-row">
+         <div class="form-row">
             <div class="outline" >
-              <input matInput placeholder="Link" [(ngModel)]="source"/>
+              <input matInput placeholder="Link" [(ngModel)]="link"/>
               <button mat-icon-button matSuffix>
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
-        </div>
+         </div>
 
       
             <button (click)="addAndClear()" mat-button matSuffix class=outline>

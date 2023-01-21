@@ -19,7 +19,7 @@ export class SourcesToolbarComponent implements OnInit {
   }
 
   newSourceModal(){
-    const dialogRef = this.dialog.open(NewSourceModalComponent, {width: '500px',
+    const dialogRef = this.dialog.open(NewSourceModalComponent, {width: '600px', panelClass: 'bg-color'
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
